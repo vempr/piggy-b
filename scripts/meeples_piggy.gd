@@ -4,7 +4,7 @@ const SPEED = 100
 var direction = 1
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if $RayCastBottomRight.is_colliding() == false:
 		$Piggy/Sprite2D.flip_h = true
 		direction = -1

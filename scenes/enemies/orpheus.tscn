@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3meg45t5ej3j"]
+
+[ext_resource type="Script" uid="uid://cabmi0wue5j3y" path="res://scripts/enemy.gd" id="1_wt2c8"]
+[ext_resource type="Texture2D" uid="uid://d3ldye2hx1bv4" path="res://assets/orpheus.png" id="1_wtx0o"]
+[ext_resource type="Texture2D" uid="uid://d1jm8b8p0e5ue" path="res://assets/orpheus-hit.png" id="2_wt2c8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtx0o"]
+radius = 141.176
+height = 1309.8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt2c8"]
+size = Vector2(103.933, 334.377)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wt2c8"]
+radius = 154.081
+
+[node name="Orpheus" type="RigidBody2D"]
+z_index = 5
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_wt2c8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(-811, 27.0001)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_wtx0o")
+
+[node name="HitSprite" type="Sprite2D" parent="."]
+position = Vector2(-811, 27.0001)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_wt2c8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-971, 99)
+rotation = 1.5708
+scale = Vector2(1.02, 1.02)
+shape = SubResource("CapsuleShape2D_wtx0o")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-193.125, 36.0963)
+rotation = 1.309
+scale = Vector2(1.02, 1.02)
+shape = SubResource("RectangleShape2D_wt2c8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-491, 0)
+shape = SubResource("CircleShape2D_wt2c8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

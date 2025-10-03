@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctpc3piplhpx"]
 
 [ext_resource type="PackedScene" uid="uid://db5qjrcbb2u16" path="res://scenes/fan.tscn" id="1_coxo2"]
-[ext_resource type="Script" uid="uid://cwe5tdfmerwic" path="res://scenes/strong_fan.gd" id="2_xoqbk"]
+[ext_resource type="Script" uid="uid://cwe5tdfmerwic" path="res://scripts/strong_fan.gd" id="2_xoqbk"]
 
 [node name="StrongFan" instance=ExtResource("1_coxo2")]
 script = ExtResource("2_xoqbk")

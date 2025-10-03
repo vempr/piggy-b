@@ -5,14 +5,13 @@ var colliding_bodies = 0
 
 
 func _ready() -> void:
-	freeze_mode = FREEZE_MODE_KINEMATIC
+	gravity_scale = 1.0
 	rotation = randf() * 360
 
 
 func _physics_process(_delta: float) -> void:
-	if GameState.coin_trapped == true:
+	if GLOBAL.coin_trapped == true:
 		linear_velocity = Vector2.ZERO
-		freeze_mode = FREEZE_MODE_STATIC
 		return
 	
 	if dir != Vector2.ZERO && colliding_bodies != 0:

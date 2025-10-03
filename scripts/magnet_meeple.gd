@@ -12,12 +12,10 @@ func _ready() -> void:
 func _on_killzone_body_entered(_body: Node2D) -> void:
 	GLOBAL.deaths += 1
 	
-	GameState.coin_trapped = true
-	Engine.time_scale = 0.1
-	
-	await get_tree().create_timer(0.05).timeout
-	
-	GameState.coin_trapped = false
-	Engine.time_scale = 1.0
+	GLOBAL.coin_trapped = true
+	coin.gravity_scale = 0.0
+	await get_tree().create_timer(0.5).timeout
+	coin.gravity_scale = 1.0
+	GLOBAL.coin_trapped = false
 	
 	get_tree().reload_current_scene()
