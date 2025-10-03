@@ -14,6 +14,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_void_body_entered(_body: Node2D) -> void:
+	GLOBAL.deaths += 1
 	call_deferred("_reload_scene")
 
 

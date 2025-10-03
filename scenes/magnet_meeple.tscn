@@ -38,7 +38,6 @@ shape = SubResource("RectangleShape2D_vsdui")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(8.74999, 73.75)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bqfsm")
 
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

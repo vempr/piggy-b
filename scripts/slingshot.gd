@@ -6,7 +6,7 @@ var end_pos = Vector2.ZERO
 
 
 func _input(_event: InputEvent) -> void:
-	if !coin.is_on_floor:
+	if coin.colliding_bodies == 0:
 		var mouse_pos = get_global_mouse_position()
 		points[0] = mouse_pos
 		points[1] = mouse_pos
@@ -26,4 +26,7 @@ func _input(_event: InputEvent) -> void:
 		points[0] = Vector2.ZERO
 		points[1] = Vector2.ZERO
 		end_pos = get_global_mouse_position()
-		coin.dir = ((start_pos - end_pos) * 1.5)
+		
+		var drag_vector = start_pos - end_pos
+		var speed = min(drag_vector.length() * 5, 800)
+		coin.dir = drag_vector.normalized() * speed

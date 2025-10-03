@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cwg87cxu65mf4" path="res://scripts/slingshot.gd" id="1_d67ah"]
 
 [node name="Slingshot" type="Line2D"]
+z_index = 2
 points = PackedVector2Array(0, 0, 0, 0)
 default_color = Color(0, 0.67451, 0.921569, 0.392157)
 script = ExtResource("1_d67ah")

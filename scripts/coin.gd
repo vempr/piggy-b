@@ -1,12 +1,11 @@
 extends RigidBody2D
 
 var dir = Vector2.ZERO
-var is_on_floor = false
+var colliding_bodies = 0
 
 
 func _ready() -> void:
 	freeze_mode = FREEZE_MODE_KINEMATIC
-	is_on_floor = false
 	rotation = randf() * 360
 
 
@@ -16,7 +15,7 @@ func _physics_process(_delta: float) -> void:
 		freeze_mode = FREEZE_MODE_STATIC
 		return
 	
-	if dir != Vector2.ZERO && is_on_floor == true:
+	if dir != Vector2.ZERO && colliding_bodies != 0:
 		linear_velocity = dir
 		dir = Vector2.ZERO
 	else:
@@ -24,8 +23,8 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_ground_area_body_entered(_body: Node2D) -> void:
-	is_on_floor = true
+	colliding_bodies += 1
 
 
 func _on_ground_area_body_exited(_body: Node2D) -> void:
-	is_on_floor = false
+	colliding_bodies -= 1
