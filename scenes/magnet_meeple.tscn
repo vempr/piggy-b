@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjcmhq4iqq783"]
+
+[ext_resource type="Script" uid="uid://tbptk2j7dpj5" path="res://scripts/magnet_meeple.gd" id="1_bqfsm"]
+[ext_resource type="Texture2D" uid="uid://cqoejbjq2aqfn" path="res://assets/meeples/magnet-1.png" id="1_vsdui"]
+[ext_resource type="Texture2D" uid="uid://dpl8sa8rajegm" path="res://assets/meeples/magnet-2.png" id="2_bqfsm"]
+[ext_resource type="Texture2D" uid="uid://20ucacsdsmw2" path="res://assets/meeples/magnet-3.png" id="3_2qi2o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsdui"]
+size = Vector2(270, 97.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqfsm"]
+size = Vector2(222.5, 277.5)
+
+[node name="MagnetMeeple" type="Node2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_bqfsm")
+
+[node name="Sprite1" type="Sprite2D" parent="."]
+position = Vector2(26, 53)
+texture = ExtResource("1_vsdui")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(26, 53)
+texture = ExtResource("2_bqfsm")
+
+[node name="Sprite3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(26, 53)
+texture = ExtResource("3_2qi2o")
+
+[node name="Killzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(7.50001, -113.75)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_vsdui")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(8.74999, 73.75)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_bqfsm")
+
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
