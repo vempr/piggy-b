@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://wsuo0pfd0jie"]
+[gd_scene load_steps=14 format=4 uid="uid://wsuo0pfd0jie"]
 
 [ext_resource type="Script" uid="uid://6hfawulcybkl" path="res://scripts/level.gd" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://c071wrdu0mwc8" path="res://scripts/game_state.gd" id="2_klq6b"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bjcmhq4iqq783" path="res://scenes/magnet_meeple.tscn" id="6_2r41h"]
 [ext_resource type="PackedScene" uid="uid://db5qjrcbb2u16" path="res://scenes/fan.tscn" id="8_b121j"]
 [ext_resource type="PackedScene" uid="uid://ctpc3piplhpx" path="res://scenes/strong_fan.tscn" id="9_8c41q"]
+[ext_resource type="PackedScene" uid="uid://dw3hgc2ukiiui" path="res://scenes/piggy.tscn" id="10_olg7q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("3_w8frs")
@@ -84,5 +85,8 @@ rotation = 4.71239
 [node name="StrongFan" parent="." instance=ExtResource("9_8c41q")]
 position = Vector2(397, 224)
 rotation = 1.5708
+
+[node name="Piggy" parent="." instance=ExtResource("10_olg7q")]
+position = Vector2(514, 770)
 
 [connection signal="body_entered" from="Void" to="." method="_on_void_body_entered"]

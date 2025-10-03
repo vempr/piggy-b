@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ck8x4202cli2j" path="res://assets/coin.png" id="1_rwqht"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kahox"]
-radius = 64.0078
+radius = 43.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i64fm"]
-radius = 67.0075
+radius = 47.0
 
 [node name="Coin" type="RigidBody2D"]
 collision_layer = 3
@@ -15,7 +15,7 @@ collision_mask = 2
 script = ExtResource("1_i64fm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.15, 0.15)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_rwqht")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
