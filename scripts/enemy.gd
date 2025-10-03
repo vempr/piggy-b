@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("click") && mouse_is_in_area == true:
+	if GLOBAL.coin_trapped == false && Input.is_action_just_pressed("click") && mouse_is_in_area == true:
 		health -= 1
 		if health == 0:
 			queue_free()
@@ -25,8 +25,8 @@ func _process(_delta: float) -> void:
 		tween.tween_property($HitSprite, "modulate:a", 0.0, 0.3)
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	GLOBAL.deaths += 1
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	GLOBAL.lives -= 1
 	linear_velocity = Vector2.ZERO
 	
 	GLOBAL.coin_trapped = true

@@ -1,15 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://wsuo0pfd0jie"]
+[gd_scene load_steps=10 format=3 uid="uid://wsuo0pfd0jie"]
 
 [ext_resource type="Script" uid="uid://6hfawulcybkl" path="res://scripts/level.gd" id="1_2q6dc"]
-[ext_resource type="PackedScene" uid="uid://cjogvstf7ciqt" path="res://scenes/enemy_path.tscn" id="2_t1rx8"]
+[ext_resource type="PackedScene" uid="uid://nadsm0pksohu" path="res://scenes/hud.tscn" id="2_8iemx"]
 [ext_resource type="Texture2D" uid="uid://bqiqtlrm1di2a" path="res://assets/old-paper-background.jpg" id="2_w7c3h"]
 [ext_resource type="Texture2D" uid="uid://b1xgfqi5j3vkn" path="res://assets/block.jpg" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://70cb1sp8lvt1" path="res://scenes/coin.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://be0pr8bew7oe2" path="res://scenes/slingshot.tscn" id="4_ppgk2"]
-[ext_resource type="PackedScene" uid="uid://bjcmhq4iqq783" path="res://scenes/enemies/magnet_meeple.tscn" id="6_2r41h"]
-[ext_resource type="PackedScene" uid="uid://db5qjrcbb2u16" path="res://scenes/fan.tscn" id="8_b121j"]
-[ext_resource type="PackedScene" uid="uid://ctpc3piplhpx" path="res://scenes/strong_fan.tscn" id="9_8c41q"]
-[ext_resource type="PackedScene" uid="uid://bsmkod3vb4b6" path="res://scenes/meeples_piggy.tscn" id="10_olg7q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("3_w8frs")
@@ -29,12 +25,7 @@ distance = -19.0001
 [node name="Level" type="Node2D"]
 script = ExtResource("1_2q6dc")
 
-[node name="EnemyPath" parent="." instance=ExtResource("2_t1rx8")]
-
-[node name="EnemySpawnTimer" type="Timer" parent="EnemyPath"]
-wait_time = 8.0
-one_shot = true
-autostart = true
+[node name="HUD" parent="." instance=ExtResource("2_8iemx")]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -43,7 +34,6 @@ texture = ExtResource("2_w7c3h")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(1.00171, 1)
-tile_map_data = PackedByteArray("AAAMAAYAAgAAAAAAAAANAAYAAgAAAAAAAAAOAAYAAgAAAAAAAAAMAAkAAgAAAAAAAAALAAkAAgAAAAAAAAAKAAkAAgAAAAAAAAAJAAkAAgAAAAAAAAAIAAkAAgAAAAAAAAAHAAkAAgAAAAAAAAAGAAkAAgAAAAAAAAAFAAkAAgAAAAAAAAAEAAkAAgAAAAAAAAAAAAcAAgAAAAAAAAABAAcAAgAAAAAAAAACAAcAAgAAAAAAAAADAAcAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_ppgk2")
 
 [node name="Void" type="Area2D" parent="."]
@@ -72,26 +62,11 @@ scale = Vector2(5, 5)
 shape = SubResource("WorldBoundaryShape2D_w8frs")
 
 [node name="Slingshot" parent="." instance=ExtResource("4_ppgk2")]
-default_color = Color(0.717647, 0, 0.188235, 0.392157)
+default_color = Color(1, 0, 0, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Coin" parent="." instance=ExtResource("4_mx8sn")]
 position = Vector2(1221, 372)
 
-[node name="MagnetMeeple" parent="." instance=ExtResource("6_2r41h")]
-position = Vector2(1354, 517)
-
-[node name="Fan" parent="." instance=ExtResource("8_b121j")]
-position = Vector2(1058, 884)
-rotation = 4.71239
-
-[node name="StrongFan" parent="." instance=ExtResource("9_8c41q")]
-position = Vector2(1031, 94)
-rotation = 1.5708
-
-[node name="MeeplesPiggy" parent="." instance=ExtResource("10_olg7q")]
-position = Vector2(131, 562)
-
-[connection signal="timeout" from="EnemyPath/EnemySpawnTimer" to="EnemyPath" method="_on_enemy_spawn_timer_timeout"]
 [connection signal="body_entered" from="Void" to="." method="_on_void_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3meg45t5ej3j"]
+[gd_scene load_steps=8 format=3 uid="uid://c3meg45t5ej3j"]
 
 [ext_resource type="Script" uid="uid://cabmi0wue5j3y" path="res://scripts/enemy.gd" id="1_wt2c8"]
 [ext_resource type="Texture2D" uid="uid://d3ldye2hx1bv4" path="res://assets/orpheus.png" id="1_wtx0o"]
@@ -13,6 +13,10 @@ size = Vector2(103.933, 334.377)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt2c8"]
 radius = 154.081
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wt2c8"]
+radius = 85.0
+height = 362.0
 
 [node name="Orpheus" type="RigidBody2D"]
 z_index = 5
@@ -48,8 +52,12 @@ scale = Vector2(1.02, 1.02)
 shape = SubResource("RectangleShape2D_wt2c8")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-491, 0)
+position = Vector2(-440, 64)
 shape = SubResource("CircleShape2D_wt2c8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-549, 31)
+shape = SubResource("CapsuleShape2D_wt2c8")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

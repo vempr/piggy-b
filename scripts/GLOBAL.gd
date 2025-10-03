@@ -1,4 +1,7 @@
 extends Node
 
-var deaths = 0
+const LAST_LEVEL = 20
+
+var lives = 10
 var coin_trapped = false
+var level = 1

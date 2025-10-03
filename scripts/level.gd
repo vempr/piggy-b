@@ -2,7 +2,10 @@ extends Node2D
 
 
 func _ready() -> void:
-	$MeeplesPiggy/Piggy.level_won.connect(_on_level_won)
+	if has_node("MeeplesPiggy/Piggy"):
+		$MeeplesPiggy/Piggy.level_won.connect(_on_level_won)
+	else:
+		$Piggy.level_won.connect(_on_level_won)
 	
 	var mouse_pos = get_global_mouse_position()
 	$Slingshot.points[0] = mouse_pos
@@ -16,7 +19,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_void_body_entered(_body: Node2D) -> void:
-	GLOBAL.deaths += 1
+	GLOBAL.lives -= 1
 	call_deferred("_reload_scene")
 
 
@@ -25,6 +28,6 @@ func _reload_scene() -> void:
 
 
 func _on_level_won() -> void:
-	print("game won!")
+	GLOBAL.level += 1
 	$Coin.visible = false
 	get_tree().paused = true

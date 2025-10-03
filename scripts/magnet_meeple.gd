@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 func _on_killzone_body_entered(_body: Node2D) -> void:
-	GLOBAL.deaths += 1
+	GLOBAL.lives -= 1
 	
 	GLOBAL.coin_trapped = true
 	coin.gravity_scale = 0.0

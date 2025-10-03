@@ -11,8 +11,11 @@ config_version=5
 [application]
 
 config/name="piggy-b"
-run/main_scene="uid://wsuo0pfd0jie"
+run/main_scene="uid://c6qx1vo3uhx11"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(1, 0.759018, 0.373303, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://benm8a5jqchyh"
 config/icon="res://icon.svg"
 
 [autoload]
