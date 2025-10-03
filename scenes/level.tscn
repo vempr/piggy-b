@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bjcmhq4iqq783" path="res://scenes/magnet_meeple.tscn" id="6_2r41h"]
 [ext_resource type="PackedScene" uid="uid://db5qjrcbb2u16" path="res://scenes/fan.tscn" id="8_b121j"]
 [ext_resource type="PackedScene" uid="uid://ctpc3piplhpx" path="res://scenes/strong_fan.tscn" id="9_8c41q"]
-[ext_resource type="PackedScene" uid="uid://dw3hgc2ukiiui" path="res://scenes/piggy.tscn" id="10_olg7q"]
+[ext_resource type="PackedScene" uid="uid://bsmkod3vb4b6" path="res://scenes/meeples_piggy.tscn" id="10_olg7q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("3_w8frs")
@@ -39,7 +39,7 @@ texture = ExtResource("2_w7c3h")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(1.00171, 1)
-tile_map_data = PackedByteArray("AAAMAAYAAgAAAAAAAAANAAYAAgAAAAAAAAAOAAYAAgAAAAAAAAAMAAkAAgAAAAAAAAALAAkAAgAAAAAAAAAKAAkAAgAAAAAAAAAJAAkAAgAAAAAAAAAIAAkAAgAAAAAAAAAHAAkAAgAAAAAAAAAGAAkAAgAAAAAAAAAFAAkAAgAAAAAAAAAEAAkAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAMAAYAAgAAAAAAAAANAAYAAgAAAAAAAAAOAAYAAgAAAAAAAAAMAAkAAgAAAAAAAAALAAkAAgAAAAAAAAAKAAkAAgAAAAAAAAAJAAkAAgAAAAAAAAAIAAkAAgAAAAAAAAAHAAkAAgAAAAAAAAAGAAkAAgAAAAAAAAAFAAkAAgAAAAAAAAAEAAkAAgAAAAAAAAAAAAcAAgAAAAAAAAABAAcAAgAAAAAAAAACAAcAAgAAAAAAAAADAAcAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_ppgk2")
 
 [node name="Void" type="Area2D" parent="."]
@@ -83,10 +83,10 @@ position = Vector2(1058, 884)
 rotation = 4.71239
 
 [node name="StrongFan" parent="." instance=ExtResource("9_8c41q")]
-position = Vector2(397, 224)
+position = Vector2(1031, 94)
 rotation = 1.5708
 
-[node name="Piggy" parent="." instance=ExtResource("10_olg7q")]
-position = Vector2(514, 770)
+[node name="MeeplesPiggy" parent="." instance=ExtResource("10_olg7q")]
+position = Vector2(131, 562)
 
 [connection signal="body_entered" from="Void" to="." method="_on_void_body_entered"]

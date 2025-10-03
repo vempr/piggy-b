@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsmkod3vb4b6"]
+
+[ext_resource type="Script" uid="uid://cdnlukh0jbkjx" path="res://scripts/meeples_piggy.gd" id="1_5s0g2"]
+[ext_resource type="PackedScene" uid="uid://dw3hgc2ukiiui" path="res://scenes/piggy.tscn" id="1_cqkqb"]
+[ext_resource type="PackedScene" uid="uid://d0blnfi2ctgkc" path="res://scenes/meeple.tscn" id="2_h1yyr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s0g2"]
+size = Vector2(146, 120)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5s0g2"]
+bg_color = Color(0.384314, 0, 0.721569, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="MeeplesPiggy" type="AnimatableBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5s0g2")
+
+[node name="Piggy" parent="." instance=ExtResource("1_cqkqb")]
+position = Vector2(0, -13)
+
+[node name="Meeple" parent="." instance=ExtResource("2_h1yyr")]
+position = Vector2(-52, 106)
+
+[node name="Meeple3" parent="." instance=ExtResource("2_h1yyr")]
+position = Vector2(26, 105)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 73)
+shape = SubResource("RectangleShape2D_5s0g2")
+
+[node name="RayCastBottomRight" type="RayCast2D" parent="."]
+position = Vector2(42, 91)
+target_position = Vector2(47, 64)
+collision_mask = 2
+
+[node name="RayCastBottomLeft" type="RayCast2D" parent="."]
+position = Vector2(-56, 91)
+target_position = Vector2(-40, 62)
+collision_mask = 2
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -94.0
+offset_top = 50.0
+offset_right = 74.0
+offset_bottom = 62.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5s0g2")
+metadata/_edit_use_anchors_ = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(26, 96)
+target_position = Vector2(86, 0)
+collision_mask = 7
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(-47, 94)
+target_position = Vector2(-86, 0)
+collision_mask = 7

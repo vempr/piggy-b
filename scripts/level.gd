@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready() -> void:
-	$Piggy.level_won.connect(_on_level_won)
+	$MeeplesPiggy/Piggy.level_won.connect(_on_level_won)
 	
 	var mouse_pos = get_global_mouse_position()
 	$Slingshot.points[0] = mouse_pos
@@ -26,4 +26,5 @@ func _reload_scene() -> void:
 
 func _on_level_won() -> void:
 	print("game won!")
+	$Coin.visible = false
 	get_tree().paused = true

@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://d0blnfi2ctgkc"]
+
+[ext_resource type="Texture2D" uid="uid://dx5ao8gwpqu0h" path="res://assets/meeples/blue-1.png" id="1_dt3vt"]
+[ext_resource type="Script" uid="uid://3qbpgg1dnoei" path="res://scripts/meeple.gd" id="1_xiie5"]
+[ext_resource type="Texture2D" uid="uid://b6vquxojli2qg" path="res://assets/meeples/blue-2.png" id="2_j6i26"]
+[ext_resource type="Texture2D" uid="uid://dpq50l2vsv7ck" path="res://assets/meeples/green-1.png" id="3_aoyk3"]
+[ext_resource type="Texture2D" uid="uid://b5hokr2avlq7s" path="res://assets/meeples/green-2.png" id="4_xiie5"]
+[ext_resource type="Texture2D" uid="uid://cnhu4bh720d3y" path="res://assets/meeples/orange-1.png" id="5_026hg"]
+[ext_resource type="Texture2D" uid="uid://dsvl30hmtdiak" path="res://assets/meeples/orange-2.png" id="6_4i4vm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ii7t5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dt3vt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j6i26")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vh3a4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_aoyk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xiie5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qlo8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_026hg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4i4vm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Meeple" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_xiie5")
+
+[node name="Sprite1" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ii7t5")
+autoplay = "default"
+frame_progress = 0.0243358
+
+[node name="Sprite2" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_vh3a4")
+autoplay = "default"
+
+[node name="Sprite3" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_7qlo8")
+autoplay = "default"
