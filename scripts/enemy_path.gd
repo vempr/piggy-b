@@ -6,7 +6,8 @@ extends Path2D
 
 
 func _ready() -> void:
-	$EnemySpawnTimer.start(randf() * 7 + 10)  
+	$EnemySpawnTimer.start(randf() * 5 + GLOBAL.LAST_LEVEL - GLOBAL.level)  
+
 
 func _on_enemy_spawn_timer_timeout() -> void:
 	var enemy
@@ -30,4 +31,4 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	enemy.linear_velocity = direction * speed
 
 	add_child(enemy)
-	$EnemySpawnTimer.start(randf() * 7 + 10)  
+	$EnemySpawnTimer.start(randf() * 5 + GLOBAL.LAST_LEVEL - GLOBAL.level)  

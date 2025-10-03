@@ -55,7 +55,7 @@ func update_arrowhead():
 	
 	var line_vector = points[1] - points[0]
 	var line_length = line_vector.length()
-	
+
 
 	if line_length > arrowhead_size / 2:
 		arrowhead.visible = true

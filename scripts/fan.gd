@@ -41,7 +41,9 @@ func _on_wind_spawner_timer_timeout() -> void:
 	
 	add_child(new_wind)
 	
-	if winds == 7:
+	if !is_strong_fan && winds == 7:
+		$WindSpawnerTimer.paused = true
+	elif is_strong_fan && winds == 14:
 		$WindSpawnerTimer.paused = true
 
 

@@ -1,7 +1,13 @@
 extends Node2D
 
+var next_level
+var all_levels_completed = GLOBAL.level + 1 > GLOBAL.LAST_LEVEL
+
 
 func _ready() -> void:
+	if !all_levels_completed:
+		next_level = load("res://scenes/levels/level_" + str(GLOBAL.level + 1) + ".tscn")
+	
 	if has_node("MeeplesPiggy/Piggy"):
 		$MeeplesPiggy/Piggy.level_won.connect(_on_level_won)
 	else:
@@ -19,15 +25,18 @@ func _process(_delta: float) -> void:
 
 
 func _on_void_body_entered(_body: Node2D) -> void:
-	GLOBAL.lives -= 1
 	call_deferred("_reload_scene")
 
 
 func _reload_scene() -> void:
-	get_tree().reload_current_scene()
+	GLOBAL.retry()
 
 
 func _on_level_won() -> void:
 	GLOBAL.level += 1
 	$Coin.visible = false
-	get_tree().paused = true
+	
+	var tree = get_tree()
+	await tree.create_timer(0.3).timeout
+	
+	tree.change_scene_to_packed(next_level)

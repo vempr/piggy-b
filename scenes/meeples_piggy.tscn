@@ -40,12 +40,12 @@ shape = SubResource("RectangleShape2D_5s0g2")
 [node name="RayCastBottomRight" type="RayCast2D" parent="."]
 position = Vector2(42, 91)
 target_position = Vector2(47, 64)
-collision_mask = 2
+collision_mask = 32
 
 [node name="RayCastBottomLeft" type="RayCast2D" parent="."]
 position = Vector2(-56, 91)
 target_position = Vector2(-40, 62)
-collision_mask = 2
+collision_mask = 32
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -94.0
@@ -58,9 +58,9 @@ metadata/_edit_use_anchors_ = true
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(26, 96)
 target_position = Vector2(86, 0)
-collision_mask = 7
+collision_mask = 32
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(-47, 94)
 target_position = Vector2(-86, 0)
-collision_mask = 7
+collision_mask = 32
