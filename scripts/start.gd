@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var level_1 = preload("res://scenes/levels/level_1.tscn")
+@onready var level_1 = load("res://scenes/levels/level_1.tscn")
 
 
 func _ready() -> void:

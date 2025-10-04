@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bg4c5vj8mfg2j" path="res://assets/heart.png" id="2_oo0fn"]
 
 [node name="HUD" type="CanvasLayer"]
+layer = 5
 script = ExtResource("1_5ysmq")
 
 [node name="LevelLabel" type="Label" parent="."]

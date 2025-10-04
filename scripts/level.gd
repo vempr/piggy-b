@@ -21,7 +21,10 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("pause"):
+		$PauseMenu.visible = !$PauseMenu.visible
+		var tree = get_tree()
+		tree.paused = !tree.paused
 
 
 func _on_void_body_entered(_body: Node2D) -> void:

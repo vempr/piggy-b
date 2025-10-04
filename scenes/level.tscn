@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wsuo0pfd0jie"]
+[gd_scene load_steps=13 format=3 uid="uid://wsuo0pfd0jie"]
 
 [ext_resource type="Script" uid="uid://6hfawulcybkl" path="res://scripts/level.gd" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://nadsm0pksohu" path="res://scenes/hud.tscn" id="2_8iemx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://be0pr8bew7oe2" path="res://scenes/slingshot.tscn" id="4_ppgk2"]
 [ext_resource type="AudioStream" uid="uid://derx4lgv1yjsv" path="res://sfx/coin-flip.mp3" id="7_klq6b"]
 [ext_resource type="AudioStream" uid="uid://dequ87kvsdd36" path="res://sfx/lose.mp3" id="8_b121j"]
+[ext_resource type="PackedScene" uid="uid://dlow1lrd6on83" path="res://scenes/pause_menu.tscn" id="9_8c41q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("3_w8frs")
@@ -25,6 +26,7 @@ sources/2 = SubResource("TileSetAtlasSource_w8frs")
 distance = -19.0001
 
 [node name="Level" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_2q6dc")
 
 [node name="HUD" parent="." instance=ExtResource("2_8iemx")]
@@ -64,19 +66,26 @@ scale = Vector2(5, 5)
 shape = SubResource("WorldBoundaryShape2D_w8frs")
 
 [node name="Slingshot" parent="." instance=ExtResource("4_ppgk2")]
+process_mode = 1
 default_color = Color(1, 0, 0, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Coin" parent="." instance=ExtResource("4_mx8sn")]
+process_mode = 1
 position = Vector2(1221, 372)
 
 [node name="WinSFX" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
 stream = ExtResource("7_klq6b")
 volume_db = 24.0
 
 [node name="LoseSFX" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
 stream = ExtResource("8_b121j")
 volume_db = 24.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_8c41q")]
+visible = false
 
 [connection signal="body_entered" from="Void" to="." method="_on_void_body_entered"]
