@@ -15,6 +15,7 @@ func _physics_process(_delta: float) -> void:
 		return
 	
 	if dir != Vector2.ZERO && colliding_bodies != 0:
+		$JumpSFX.play()
 		linear_velocity = dir
 		dir = Vector2.ZERO
 	else:

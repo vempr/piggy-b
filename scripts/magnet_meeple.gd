@@ -9,7 +9,9 @@ func _ready() -> void:
 	get_node("Sprite" + str(number)).visible = true
 
 
-func _on_killzone_body_entered(_body: Node2D) -> void:	
+func _on_killzone_body_entered(_body: Node2D) -> void:
+	$LoseSFX.play()
+	
 	GLOBAL.coin_trapped = true
 	coin.gravity_scale = 0.0
 	await get_tree().create_timer(0.5).timeout

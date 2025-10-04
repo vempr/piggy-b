@@ -24,8 +24,11 @@ func _process(_delta: float) -> void:
 		health -= 1
 		if health == 0:
 			enemy_is_dead = true
-			await tween.tween_property(self, "modulate:a", 0.0, 0.1).finished
+			$DieSFX.play(0.5)
+			await tween.tween_property(self, "modulate:a", 0.0, 0.3).finished
 			queue_free()
+		else:
+			$HurtSFX.play()
 
 		tween.tween_property($HitSprite, "modulate:a", 0.0, 0.3)
 
@@ -33,6 +36,8 @@ func _process(_delta: float) -> void:
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if enemy_is_dead == false:
 		return
+	
+	$LoseSFX.play()
 	
 	linear_velocity = Vector2.ZERO
 	

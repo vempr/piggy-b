@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3meg45t5ej3j"]
+[gd_scene load_steps=11 format=3 uid="uid://c3meg45t5ej3j"]
 
 [ext_resource type="Script" uid="uid://cabmi0wue5j3y" path="res://scripts/enemy.gd" id="1_wt2c8"]
 [ext_resource type="Texture2D" uid="uid://d3ldye2hx1bv4" path="res://assets/orpheus.png" id="1_wtx0o"]
 [ext_resource type="Texture2D" uid="uid://d1jm8b8p0e5ue" path="res://assets/orpheus-hit.png" id="2_wt2c8"]
+[ext_resource type="AudioStream" uid="uid://dequ87kvsdd36" path="res://sfx/lose.mp3" id="4_ot348"]
+[ext_resource type="AudioStream" uid="uid://btevaog4hh1q4" path="res://sfx/hurt.mp3" id="5_d56gc"]
+[ext_resource type="AudioStream" uid="uid://c6u7vfkysk6w" path="res://sfx/die.mp3" id="6_q8jec"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wtx0o"]
 radius = 141.176
@@ -58,6 +61,18 @@ shape = SubResource("CircleShape2D_wt2c8")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-549, 31)
 shape = SubResource("CapsuleShape2D_wt2c8")
+
+[node name="LoseSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ot348")
+volume_db = 24.0
+
+[node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_d56gc")
+volume_db = 24.0
+
+[node name="DieSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_q8jec")
+volume_db = 16.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://wsuo0pfd0jie"]
+[gd_scene load_steps=12 format=3 uid="uid://wsuo0pfd0jie"]
 
 [ext_resource type="Script" uid="uid://6hfawulcybkl" path="res://scripts/level.gd" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://nadsm0pksohu" path="res://scenes/hud.tscn" id="2_8iemx"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b1xgfqi5j3vkn" path="res://assets/block.jpg" id="3_w8frs"]
 [ext_resource type="PackedScene" uid="uid://70cb1sp8lvt1" path="res://scenes/coin.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://be0pr8bew7oe2" path="res://scenes/slingshot.tscn" id="4_ppgk2"]
+[ext_resource type="AudioStream" uid="uid://derx4lgv1yjsv" path="res://sfx/coin-flip.mp3" id="7_klq6b"]
+[ext_resource type="AudioStream" uid="uid://dequ87kvsdd36" path="res://sfx/lose.mp3" id="8_b121j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("3_w8frs")
@@ -68,5 +70,13 @@ end_cap_mode = 2
 
 [node name="Coin" parent="." instance=ExtResource("4_mx8sn")]
 position = Vector2(1221, 372)
+
+[node name="WinSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_klq6b")
+volume_db = 24.0
+
+[node name="LoseSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_b121j")
+volume_db = 24.0
 
 [connection signal="body_entered" from="Void" to="." method="_on_void_body_entered"]

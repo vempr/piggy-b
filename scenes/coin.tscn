@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://70cb1sp8lvt1"]
+[gd_scene load_steps=6 format=3 uid="uid://70cb1sp8lvt1"]
 
 [ext_resource type="Script" uid="uid://c1uths0d67gx3" path="res://scripts/coin.gd" id="1_i64fm"]
 [ext_resource type="Texture2D" uid="uid://ck8x4202cli2j" path="res://assets/coin.png" id="1_rwqht"]
+[ext_resource type="AudioStream" uid="uid://dmf5q1ruptkxn" path="res://sfx/action_jump.mp3" id="3_11l1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kahox"]
 radius = 43.0
@@ -27,6 +28,10 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundArea"]
 shape = SubResource("CircleShape2D_i64fm")
+
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_11l1o")
+volume_db = 24.0
 
 [connection signal="body_entered" from="GroundArea" to="." method="_on_ground_area_body_entered"]
 [connection signal="body_exited" from="GroundArea" to="." method="_on_ground_area_body_exited"]

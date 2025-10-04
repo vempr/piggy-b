@@ -25,6 +25,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_void_body_entered(_body: Node2D) -> void:
+	$LoseSFX.play()
 	call_deferred("_reload_scene")
 
 
@@ -33,6 +34,7 @@ func _reload_scene() -> void:
 
 
 func _on_level_won() -> void:
+	$WinSFX.play()
 	GLOBAL.level += 1
 	$Coin.visible = false
 	
