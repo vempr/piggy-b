@@ -5,7 +5,7 @@ extends Node2D
 
 
 func _ready() -> void:
-	GLOBAL.level = 5
+	GLOBAL.level = 1
 	var music_stream = load("res://music/Virtual Riot - Idols [Lofi Geometry Dash Remix].mp3")
 	Music.stream = music_stream
 	Music.play()

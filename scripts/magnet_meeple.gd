@@ -10,11 +10,14 @@ func _ready() -> void:
 
 
 func _on_killzone_body_entered(_body: Node2D) -> void:
-	$LoseSFX.play()
+	$LoseSFX.play(2.5)
 	
 	GLOBAL.coin_trapped = true
 	coin.gravity_scale = 0.0
-	await get_tree().create_timer(0.5).timeout
+	Fade.fade_out(0.5)
+
+
+func _on_lose_sfx_finished() -> void:
 	coin.gravity_scale = 1.0
 	GLOBAL.coin_trapped = false
 	

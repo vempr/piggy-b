@@ -89,3 +89,4 @@ volume_db = 24.0
 visible = false
 
 [connection signal="body_entered" from="Void" to="." method="_on_void_body_entered"]
+[connection signal="finished" from="LoseSFX" to="." method="_on_lose_sfx_finished"]

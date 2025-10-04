@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp738q68ne1b3" path="res://scripts/start.gd" id="1_6ayib"]
 [ext_resource type="Texture2D" uid="uid://bqiqtlrm1di2a" path="res://assets/old-paper-background.jpg" id="1_sxr8l"]
-[ext_resource type="Texture2D" uid="uid://ck8x4202cli2j" path="res://assets/coin.png" id="2_bw3rj"]
+[ext_resource type="Texture2D" uid="uid://bkm35phjiu0gj" path="res://assets/coin.png" id="2_bw3rj"]
 [ext_resource type="FontFile" uid="uid://bd7ycu7flaw3v" path="res://assets/Calamity Regular.otf" id="3_osc7o"]
 [ext_resource type="Texture2D" uid="uid://bx4ftgn43yjk1" path="res://assets/piggy.png" id="4_wjk5u"]
 [ext_resource type="StyleBox" uid="uid://mkposx5o0hdp" path="res://styles/play_button.tres" id="5_xy1qu"]

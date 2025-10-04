@@ -87,7 +87,7 @@ position = Vector2(782, 312)
 position = Vector2(910, 312)
 
 [node name="MagnetMeeple3" parent="." index="14" instance=ExtResource("3_6ftoq")]
-position = Vector2(394, 704)
+position = Vector2(399, 716)
 
 [node name="Piggy" parent="." index="15" instance=ExtResource("2_uawh8")]
 position = Vector2(107, 835)

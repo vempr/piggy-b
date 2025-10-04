@@ -4,6 +4,7 @@ extends CanvasLayer
 
 
 func _ready() -> void:
+	$YaySFX.play()
 	if has_node("LivesLabel"):
 		$LivesLabel.text = "beaten with " + str(GLOBAL.BEGINNING_LIVES - GLOBAL.lives) + " lives lost"
 

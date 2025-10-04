@@ -4,6 +4,8 @@ var next_level
 
 
 func _ready() -> void:
+	$HUD.pause_button_pressed.connect(_on_pause_button_pressed)
+	
 	match GLOBAL.is_in_tutorial_mode:
 		true:
 			if GLOBAL.level != GLOBAL.LAST_TUTORIAL_LEVEL:
@@ -29,6 +31,12 @@ func _ready() -> void:
 	$Slingshot.end_pos = mouse_pos
 
 
+func _on_pause_button_pressed() -> void:
+	$PauseMenu.visible = !$PauseMenu.visible
+	var tree = get_tree()
+	tree.paused = !tree.paused
+
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		$PauseMenu.visible = !$PauseMenu.visible
@@ -37,12 +45,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_void_body_entered(_body: Node2D) -> void:
-	$LoseSFX.play()
-	call_deferred("_reload_scene")
-
-
-func _reload_scene() -> void:
-	GLOBAL.retry()
+	$LoseSFX.play(2.5)
+	Fade.fade_out(0.3)
 
 
 func _on_level_won() -> void:
@@ -50,6 +54,7 @@ func _on_level_won() -> void:
 	GLOBAL.level += 1
 	$Coin.visible = false
 	
+	Fade.fade_out(0.2)
 	var tree = get_tree()
 	
 	match GLOBAL.is_in_tutorial_mode:
@@ -69,3 +74,9 @@ func _on_level_won() -> void:
 			else:
 				await tree.create_timer(0.3).timeout
 				tree.change_scene_to_packed(next_level)
+	
+	Fade.fade_in(0.2)
+
+
+func _on_lose_sfx_finished() -> void:
+	GLOBAL.retry()

@@ -39,7 +39,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_wt2c8")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
+collision_layer = 32
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -81,3 +81,4 @@ volume_db = 16.0
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="finished" from="LoseSFX" to="." method="_on_lose_sfx_finished"]

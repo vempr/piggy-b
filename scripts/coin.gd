@@ -9,6 +9,11 @@ func _ready() -> void:
 	rotation = randf() * 360
 
 
+func _process(_delta: float) -> void:
+	if GLOBAL.coin_trapped:
+		$SpriteDead.visible = true
+
+
 func _physics_process(_delta: float) -> void:
 	if GLOBAL.coin_trapped == true:
 		linear_velocity = Vector2.ZERO

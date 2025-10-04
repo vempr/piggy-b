@@ -7,7 +7,7 @@ const LAST_TUTORIAL_LEVEL = 5
 const BEGINNING_TUTORIAL_LIVES = 100
 
 const LAST_LEVEL = 20
-const BEGINNING_LIVES = 10
+const BEGINNING_LIVES = 20
 
 var is_in_tutorial_mode = false
 var lives = BEGINNING_LIVES
@@ -19,12 +19,14 @@ func retry() -> void:
 	lives -= 1
 
 	if lives > 0:
-		get_tree().call_deferred("reload_current_scene")
+		get_tree().reload_current_scene()
 	else:
 		level = 1
 		if is_in_tutorial_mode:
 			lives = BEGINNING_TUTORIAL_LIVES
-			get_tree().call_deferred("change_scene_to_packed", first_tutorial_level)
+			get_tree().change_scene_to_packed(first_tutorial_level)
 		else:
 			lives = BEGINNING_LIVES
-			get_tree().call_deferred("change_scene_to_packed", first_level)
+			get_tree().change_scene_to_packed(first_level)
+	
+	Fade.fade_in(0.2)

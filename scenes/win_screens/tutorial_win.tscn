@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ouhjlnlj88ct"]
+[gd_scene load_steps=11 format=3 uid="uid://ouhjlnlj88ct"]
 
 [ext_resource type="Texture2D" uid="uid://bqiqtlrm1di2a" path="res://assets/old-paper-background.jpg" id="1_3coqn"]
 [ext_resource type="Script" uid="uid://bgur3ajelirlv" path="res://scripts/win.gd" id="1_ad7m8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7jubo6pabeq5" path="res://assets/pencil.png" id="3_ty7yq"]
 [ext_resource type="FontFile" uid="uid://bd7ycu7flaw3v" path="res://assets/Calamity Regular.otf" id="4_v1ogj"]
 [ext_resource type="StyleBox" uid="uid://mkposx5o0hdp" path="res://styles/play_button.tres" id="5_gmjpc"]
+[ext_resource type="AudioStream" uid="uid://emprhx3cpdks" path="res://sfx/yay.mp3" id="7_u4hsm"]
 
 [sub_resource type="Animation" id="Animation_gmjpc"]
 length = 0.001
@@ -82,7 +83,7 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_outline_size = 5
 theme_override_fonts/font = ExtResource("4_v1ogj")
 theme_override_font_sizes/font_size = 60
-text = "you won... a pencil"
+text = "you bought... a pencil"
 
 [node name="Label2" type="Label" parent="."]
 anchors_preset = 5
@@ -100,6 +101,25 @@ theme_override_constants/shadow_outline_size = 3
 theme_override_fonts/font = ExtResource("4_v1ogj")
 theme_override_font_sizes/font_size = 30
 text = "play normal mode to win better prizes!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -636.0
+offset_top = 73.0
+offset_right = 637.0
+offset_bottom = 394.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("4_v1ogj")
+theme_override_font_sizes/font_size = 30
+text = "total coins gathered in piggy bank: 5"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -131,5 +151,9 @@ theme_override_styles/pressed = ExtResource("5_gmjpc")
 theme_override_styles/normal_mirrored = ExtResource("5_gmjpc")
 theme_override_styles/normal = ExtResource("5_gmjpc")
 text = "main menu"
+
+[node name="YaySFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_u4hsm")
+volume_db = 10.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

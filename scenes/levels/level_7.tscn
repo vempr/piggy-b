@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=4 uid="uid://bke6k31h7l5o3"]
+
+[ext_resource type="PackedScene" uid="uid://wsuo0pfd0jie" path="res://scenes/level.tscn" id="1_07ctq"]
+[ext_resource type="PackedScene" uid="uid://bjcmhq4iqq783" path="res://scenes/enemies/magnet_meeple.tscn" id="3_772ry"]
+[ext_resource type="PackedScene" uid="uid://bsmkod3vb4b6" path="res://scenes/meeples_piggy.tscn" id="4_d06uk"]
+[ext_resource type="PackedScene" uid="uid://ctpc3piplhpx" path="res://scenes/strong_fan.tscn" id="4_hq5i0"]
+[ext_resource type="PackedScene" uid="uid://db5qjrcbb2u16" path="res://scenes/fan.tscn" id="5_u1w5x"]
+[ext_resource type="PackedScene" uid="uid://cjogvstf7ciqt" path="res://scenes/enemy_path.tscn" id="6_hq5i0"]
+
+[node name="Level7" instance=ExtResource("1_07ctq")]
+
+[node name="TileMapLayer" parent="." index="2"]
+tile_map_data = PackedByteArray("AAD//wkAAgAAAAAAAAD//wgAAgAAAAAAAAD//wcAAgAAAAAAAAD//wYAAgAAAAAAAAD//wUAAgAAAAAAAAD//wQAAgAAAAAAAAD//wMAAgAAAAAAAAD//wIAAgAAAAAAAAD//wEAAgAAAAAAAAD//wAAAgAAAAAAAAATAAQAAgAAAAAAAAATAAMAAgAAAAAAAAATAAIAAgAAAAAAAAATAAEAAgAAAAAAAAATAAAAAgAAAAAAAAD/////AgAAAAAAAAAAAP//AgAAAAAAAAABAP//AgAAAAAAAAACAP//AgAAAAAAAAADAP//AgAAAAAAAAAEAP//AgAAAAAAAAAFAP//AgAAAAAAAAAGAP//AgAAAAAAAAAHAP//AgAAAAAAAAAIAP//AgAAAAAAAAAJAP//AgAAAAAAAAAKAP//AgAAAAAAAAALAP//AgAAAAAAAAAMAP//AgAAAAAAAAANAP//AgAAAAAAAAAOAP//AgAAAAAAAAAPAP//AgAAAAAAAAAQAP//AgAAAAAAAAARAP//AgAAAAAAAAASAP//AgAAAAAAAAATAP//AgAAAAAAAAD//woAAgAAAAAAAAAAAAoAAgAAAAAAAAABAAoAAgAAAAAAAAACAAoAAgAAAAAAAAADAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAALAAoAAgAAAAAAAAAMAAoAAgAAAAAAAAANAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAAPAAoAAgAAAAAAAAAQAAoAAgAAAAAAAAARAAoAAgAAAAAAAAASAAoAAgAAAAAAAAATAAoAAgAAAAAAAAATAAkAAgAAAAAAAAATAAgAAgAAAAAAAAATAAcAAgAAAAAAAAATAAYAAgAAAAAAAAATAAUAAgAAAAAAAAAAAAUAAgAAAAAAAAABAAUAAgAAAAAAAAACAAUAAgAAAAAAAAADAAUAAgAAAAAAAAAEAAUAAgAAAAAAAAAFAAUAAgAAAAAAAAAFAAYAAgAAAAAAAAAFAAcAAgAAAAAAAAAFAAgAAgAAAAAAAAAEAAgAAgAAAAAAAAADAAgAAgAAAAAAAAACAAgAAgAAAAAAAAACAAcAAgAAAAAAAAACAAYAAgAAAAAAAAADAAYAAgAAAAAAAAAEAAYAAgAAAAAAAAAEAAcAAgAAAAAAAAADAAcAAgAAAAAAAAANAAgAAgAAAAAAAAAOAAgAAgAAAAAAAAAPAAgAAgAAAAAAAAAJAAYAAgAAAAAAAAAKAAYAAgAAAAAAAAALAAYAAgAAAAAAAAANAAQAAgAAAAAAAAAOAAQAAgAAAAAAAAAPAAQAAgAAAAAAAAAGAAIAAgAAAAAAAAAHAAIAAgAAAAAAAAAIAAIAAgAAAAAAAAAJAAIAAgAAAAAAAAAKAAIAAgAAAAAAAAA=")
+
+[node name="Coin" parent="." index="5"]
+position = Vector2(96, 704)
+
+[node name="MagnetMeeple" parent="." index="9" instance=ExtResource("3_772ry")]
+position = Vector2(1831, 914)
+
+[node name="MeeplesPiggy" parent="." index="10" instance=ExtResource("4_d06uk")]
+position = Vector2(165, 366)
+
+[node name="StrongFan" parent="." index="11" instance=ExtResource("4_hq5i0")]
+position = Vector2(308, -1)
+rotation = 1.5708
+
+[node name="Fan" parent="." index="12" instance=ExtResource("5_u1w5x")]
+position = Vector2(154, -1)
+rotation = 1.5708
+
+[node name="StrongFan2" parent="." index="13" instance=ExtResource("4_hq5i0")]
+position = Vector2(613, -1)
+rotation = 1.5708
+
+[node name="Fan2" parent="." index="14" instance=ExtResource("5_u1w5x")]
+position = Vector2(459, -1)
+rotation = 1.5708
+
+[node name="EnemyPath" parent="." index="15" instance=ExtResource("6_hq5i0")]
+
+[node name="EnemySpawnTimer" type="Timer" parent="EnemyPath" index="1"]
+wait_time = 20.0
+
+[connection signal="timeout" from="EnemyPath/EnemySpawnTimer" to="EnemyPath" method="_on_enemy_spawn_timer_timeout"]

@@ -46,3 +46,4 @@ stream = ExtResource("5_7pnoh")
 volume_db = 24.0
 
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]
+[connection signal="finished" from="LoseSFX" to="." method="_on_lose_sfx_finished"]
