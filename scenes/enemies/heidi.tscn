@@ -93,7 +93,7 @@ volume_db = 24.0
 
 [node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_6oolw")
-volume_db = 24.0
+volume_db = 10.0
 
 [node name="DieSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_1pei3")

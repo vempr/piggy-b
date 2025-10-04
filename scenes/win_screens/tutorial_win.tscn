@@ -1,0 +1,135 @@
+[gd_scene load_steps=10 format=3 uid="uid://ouhjlnlj88ct"]
+
+[ext_resource type="Texture2D" uid="uid://bqiqtlrm1di2a" path="res://assets/old-paper-background.jpg" id="1_3coqn"]
+[ext_resource type="Script" uid="uid://bgur3ajelirlv" path="res://scripts/win.gd" id="1_ad7m8"]
+[ext_resource type="Texture2D" uid="uid://benm8a5jqchyh" path="res://assets/cool.png" id="2_jeon6"]
+[ext_resource type="Texture2D" uid="uid://b7jubo6pabeq5" path="res://assets/pencil.png" id="3_ty7yq"]
+[ext_resource type="FontFile" uid="uid://bd7ycu7flaw3v" path="res://assets/Calamity Regular.otf" id="4_v1ogj"]
+[ext_resource type="StyleBox" uid="uid://mkposx5o0hdp" path="res://styles/play_button.tres" id="5_gmjpc"]
+
+[sub_resource type="Animation" id="Animation_gmjpc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v1ogj"]
+resource_name = "new_animation"
+length = 7.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ad7m8"]
+_data = {
+&"RESET": SubResource("Animation_gmjpc"),
+&"new_animation": SubResource("Animation_v1ogj")
+}
+
+[node name="TutorialWin" type="CanvasLayer"]
+script = ExtResource("1_ad7m8")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_3coqn")
+
+[node name="Cool" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_jeon6")
+
+[node name="Pencil" type="Sprite2D" parent="."]
+position = Vector2(951, 542)
+texture = ExtResource("3_ty7yq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pencil"]
+libraries = {
+&"": SubResource("AnimationLibrary_ad7m8")
+}
+autoplay = "new_animation"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -370.5
+offset_top = 116.0
+offset_right = 370.5
+offset_bottom = 437.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("4_v1ogj")
+theme_override_font_sizes/font_size = 60
+text = "you won... a pencil"
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -370.0
+offset_top = 203.0
+offset_right = 371.0
+offset_bottom = 524.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("4_v1ogj")
+theme_override_font_sizes/font_size = 30
+text = "play normal mode to win better prizes!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -345.5
+offset_top = -181.0
+offset_right = 345.5
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 20
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = ExtResource("4_v1ogj")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = ExtResource("5_gmjpc")
+theme_override_styles/disabled_mirrored = ExtResource("5_gmjpc")
+theme_override_styles/disabled = ExtResource("5_gmjpc")
+theme_override_styles/hover_pressed_mirrored = ExtResource("5_gmjpc")
+theme_override_styles/hover_pressed = ExtResource("5_gmjpc")
+theme_override_styles/hover_mirrored = ExtResource("5_gmjpc")
+theme_override_styles/hover = ExtResource("5_gmjpc")
+theme_override_styles/pressed_mirrored = ExtResource("5_gmjpc")
+theme_override_styles/pressed = ExtResource("5_gmjpc")
+theme_override_styles/normal_mirrored = ExtResource("5_gmjpc")
+theme_override_styles/normal = ExtResource("5_gmjpc")
+text = "main menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

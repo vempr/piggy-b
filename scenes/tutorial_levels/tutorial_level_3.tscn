@@ -1,0 +1,100 @@
+[gd_scene load_steps=6 format=4 uid="uid://bht1hfiftf3x7"]
+
+[ext_resource type="PackedScene" uid="uid://wsuo0pfd0jie" path="res://scenes/level.tscn" id="1_6ftoq"]
+[ext_resource type="PackedScene" uid="uid://cjogvstf7ciqt" path="res://scenes/enemy_path.tscn" id="2_6hfs7"]
+[ext_resource type="PackedScene" uid="uid://dw3hgc2ukiiui" path="res://scenes/piggy.tscn" id="2_uawh8"]
+[ext_resource type="PackedScene" uid="uid://bjcmhq4iqq783" path="res://scenes/enemies/magnet_meeple.tscn" id="3_6ftoq"]
+[ext_resource type="FontFile" uid="uid://bd7ycu7flaw3v" path="res://assets/Calamity Regular.otf" id="3_6hfs7"]
+
+[node name="TutorialLevel3" instance=ExtResource("1_6ftoq")]
+
+[node name="TileMapLayer" parent="." index="2"]
+tile_map_data = PackedByteArray("AAD//wAAAgAAAAAAAAD//wEAAgAAAAAAAAD//wIAAgAAAAAAAAD//wMAAgAAAAAAAAD//wQAAgAAAAAAAAD//wUAAgAAAAAAAAD//wYAAgAAAAAAAAD//wcAAgAAAAAAAAD//wgAAgAAAAAAAAD//wkAAgAAAAAAAAD//woAAgAAAAAAAAAAAAoAAgAAAAAAAAABAAoAAgAAAAAAAAACAAoAAgAAAAAAAAADAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAALAAoAAgAAAAAAAAAMAAoAAgAAAAAAAAANAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAAPAAoAAgAAAAAAAAAQAAoAAgAAAAAAAAARAAoAAgAAAAAAAAASAAoAAgAAAAAAAAATAAoAAgAAAAAAAAATAAkAAgAAAAAAAAATAAgAAgAAAAAAAAATAAcAAgAAAAAAAAATAAYAAgAAAAAAAAATAAUAAgAAAAAAAAATAAQAAgAAAAAAAAATAAMAAgAAAAAAAAATAAIAAgAAAAAAAAATAAEAAgAAAAAAAAATAAAAAgAAAAAAAAD/////AgAAAAAAAAAAAP//AgAAAAAAAAABAP//AgAAAAAAAAACAP//AgAAAAAAAAADAP//AgAAAAAAAAAEAP//AgAAAAAAAAAFAP//AgAAAAAAAAAGAP//AgAAAAAAAAAHAP//AgAAAAAAAAAIAP//AgAAAAAAAAAJAP//AgAAAAAAAAAKAP//AgAAAAAAAAALAP//AgAAAAAAAAAMAP//AgAAAAAAAAANAP//AgAAAAAAAAAOAP//AgAAAAAAAAAPAP//AgAAAAAAAAAQAP//AgAAAAAAAAARAP//AgAAAAAAAAASAP//AgAAAAAAAAATAP//AgAAAAAAAAARAAkAAgAAAAAAAAAQAAkAAgAAAAAAAAAPAAkAAgAAAAAAAAAOAAkAAgAAAAAAAAANAAkAAgAAAAAAAAASAAkAAgAAAAAAAAAAAAkAAgAAAAAAAAABAAkAAgAAAAAAAAACAAkAAgAAAAAAAAADAAkAAgAAAAAAAAAEAAkAAgAAAAAAAAAFAAkAAgAAAAAAAAAGAAkAAgAAAAAAAAAHAAkAAgAAAAAAAAAIAAkAAgAAAAAAAAAJAAkAAgAAAAAAAAAKAAkAAgAAAAAAAAALAAkAAgAAAAAAAAAMAAkAAgAAAAAAAAAGAAMAAgAAAAAAAAAKAAMAAgAAAAAAAAALAAMAAgAAAAAAAAAGAAQAAgAAAAAAAAAHAAQAAgAAAAAAAAAIAAQAAgAAAAAAAAAJAAQAAgAAAAAAAAAKAAQAAgAAAAAAAAAFAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAADAAMAAgAAAAAAAAACAAMAAgAAAAAAAAABAAMAAgAAAAAAAAAAAAMAAgAAAAAAAAAMAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAPAAMAAgAAAAAAAAAQAAMAAgAAAAAAAAARAAMAAgAAAAAAAAARAAUAAgAAAAAAAAASAAUAAgAAAAAAAAAQAAUAAgAAAAAAAAAPAAUAAgAAAAAAAAAOAAUAAgAAAAAAAAANAAUAAgAAAAAAAAAMAAUAAgAAAAAAAAAKAAUAAgAAAAAAAAAKAAYAAgAAAAAAAAAKAAcAAgAAAAAAAAALAAcAAgAAAAAAAAAMAAcAAgAAAAAAAAANAAcAAgAAAAAAAAAOAAcAAgAAAAAAAAAPAAcAAgAAAAAAAAAQAAcAAgAAAAAAAAARAAcAAgAAAAAAAAAIAAgAAgAAAAAAAAAIAAcAAgAAAAAAAAAIAAYAAgAAAAAAAAAHAAYAAgAAAAAAAAAGAAYAAgAAAAAAAAAEAAgAAgAAAAAAAAAFAAcAAgAAAAAAAAAGAAcAAgAAAAAAAAAHAAcAAgAAAAAAAAAHAAgAAgAAAAAAAAAGAAgAAgAAAAAAAAAFAAgAAgAAAAAAAAACAAYAAgAAAAAAAAACAAcAAgAAAAAAAAACAAgAAgAAAAAAAAADAAgAAgAAAAAAAAAFAAYAAgAAAAAAAAA=")
+
+[node name="Coin" parent="." index="5"]
+z_index = 1
+position = Vector2(106, 179)
+
+[node name="Label" type="Label" parent="." index="9"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 225.0
+offset_top = 82.0
+offset_right = 752.0
+offset_bottom = 419.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_6hfs7")
+theme_override_font_sizes/font_size = 30
+text = "there are two enemies: magnet meeples and heidi/orpheus."
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="." index="10"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1245.0
+offset_top = 58.0
+offset_right = 1772.0
+offset_bottom = 395.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_6hfs7")
+theme_override_font_sizes/font_size = 30
+text = "Both will kill you instantly. Orpheus and heidi spawn randomly, and you must click to eliminate them"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="." index="11"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 740.0
+offset_top = 832.0
+offset_right = 1882.0
+offset_bottom = 1101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_6hfs7")
+theme_override_font_sizes/font_size = 30
+text = "orpheus and heidi spawn after a few seconds."
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="MagnetMeeple" parent="." index="12" instance=ExtResource("3_6ftoq")]
+position = Vector2(782, 312)
+
+[node name="MagnetMeeple2" parent="." index="13" instance=ExtResource("3_6ftoq")]
+position = Vector2(910, 312)
+
+[node name="MagnetMeeple3" parent="." index="14" instance=ExtResource("3_6ftoq")]
+position = Vector2(394, 704)
+
+[node name="Piggy" parent="." index="15" instance=ExtResource("2_uawh8")]
+position = Vector2(107, 835)
+
+[node name="EnemyPath" parent="." index="16" instance=ExtResource("2_6hfs7")]
+
+[node name="EnemySpawnTimer" type="Timer" parent="EnemyPath" index="1"]
+wait_time = 20.0
+
+[connection signal="timeout" from="EnemyPath/EnemySpawnTimer" to="EnemyPath" method="_on_enemy_spawn_timer_timeout"]

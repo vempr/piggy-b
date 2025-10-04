@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=4 uid="uid://c8eylr1ovq3gy"]
+
+[ext_resource type="PackedScene" uid="uid://wsuo0pfd0jie" path="res://scenes/level.tscn" id="1_y0kys"]
+[ext_resource type="FontFile" uid="uid://bd7ycu7flaw3v" path="res://assets/Calamity Regular.otf" id="2_7wcyk"]
+[ext_resource type="PackedScene" uid="uid://bjcmhq4iqq783" path="res://scenes/enemies/magnet_meeple.tscn" id="3_3ehgy"]
+[ext_resource type="PackedScene" uid="uid://bsmkod3vb4b6" path="res://scenes/meeples_piggy.tscn" id="4_y0kys"]
+[ext_resource type="PackedScene" uid="uid://cjogvstf7ciqt" path="res://scenes/enemy_path.tscn" id="5_8ghlg"]
+
+[node name="TutorialLevel5" instance=ExtResource("1_y0kys")]
+
+[node name="TileMapLayer" parent="." index="2"]
+tile_map_data = PackedByteArray("AAABAAMAAgAAAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAANAAMAAgAAAAAAAAAOAAMAAgAAAAAAAAAGAAQAAgAAAAAAAAAHAAQAAgAAAAAAAAAIAAQAAgAAAAAAAAAJAAQAAgAAAAAAAAAKAAQAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAAAAAADAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAQAAAAAgAAAAAAAAARAAAAAgAAAAAAAAASAAAAAgAAAAAAAAATAAAAAgAAAAAAAAATAAEAAgAAAAAAAAATAAIAAgAAAAAAAAATAAMAAgAAAAAAAAATAAQAAgAAAAAAAAARAAMAAgAAAAAAAAARAAQAAgAAAAAAAAAOAAIAAgAAAAAAAAAPAAIAAgAAAAAAAAAQAAIAAgAAAAAAAAARAAIAAgAAAAAAAAADAAQAAgAAAAAAAAAEAAQAAgAAAAAAAAAFAAQAAgAAAAAAAAALAAQAAgAAAAAAAAAMAAQAAgAAAAAAAAANAAQAAgAAAAAAAAAQAAQAAgAAAAAAAAAPAAQAAgAAAAAAAAAOAAQAAgAAAAAAAAASAAcAAgAAAAAAAAARAAcAAgAAAAAAAAAOAAcAAgAAAAAAAAANAAcAAgAAAAAAAAAKAAcAAgAAAAAAAAAJAAcAAgAAAAAAAAAGAAcAAgAAAAAAAAAFAAcAAgAAAAAAAAAGAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAADAAoAAgAAAAAAAAACAAoAAgAAAAAAAAABAAoAAgAAAAAAAAAAAAoAAgAAAAAAAAAJAAgAAgAAAAAAAAAJAAkAAgAAAAAAAAAJAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAAKAAkAAgAAAAAAAAAKAAgAAgAAAAAAAAARAAgAAgAAAAAAAAARAAkAAgAAAAAAAAARAAoAAgAAAAAAAAASAAoAAgAAAAAAAAASAAkAAgAAAAAAAAASAAgAAgAAAAAAAAA=")
+
+[node name="Coin" parent="." index="5"]
+z_index = 1
+position = Vector2(199, 228)
+
+[node name="Label" type="Label" parent="." index="9"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1184.0
+offset_top = 989.0
+offset_right = 2284.0
+offset_bottom = 1326.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/shadow_outline_size = 6
+theme_override_fonts/font = ExtResource("2_7wcyk")
+theme_override_font_sizes/font_size = 60
+text = "good luck!"
+autowrap_mode = 2
+
+[node name="EnemyPath" parent="." index="10" instance=ExtResource("5_8ghlg")]
+
+[node name="EnemySpawnTimer" type="Timer" parent="EnemyPath" index="1"]
+wait_time = 20.0
+
+[node name="MeeplesPiggy" parent="." index="11" instance=ExtResource("4_y0kys")]
+position = Vector2(164, 867)
+
+[node name="MagnetMeeple" parent="." index="12" instance=ExtResource("3_3ehgy")]
+position = Vector2(754, 315)
+
+[connection signal="timeout" from="EnemyPath/EnemySpawnTimer" to="EnemyPath" method="_on_enemy_spawn_timer_timeout"]

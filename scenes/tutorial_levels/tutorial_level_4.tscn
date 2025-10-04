@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=4 uid="uid://dd8c04y46qilt"]
+
+[ext_resource type="PackedScene" uid="uid://wsuo0pfd0jie" path="res://scenes/level.tscn" id="1_jt78n"]
+[ext_resource type="PackedScene" uid="uid://bsmkod3vb4b6" path="res://scenes/meeples_piggy.tscn" id="2_jt78n"]
+[ext_resource type="FontFile" uid="uid://bd7ycu7flaw3v" path="res://assets/Calamity Regular.otf" id="3_xtggx"]
+
+[node name="TutorialLevel4" instance=ExtResource("1_jt78n")]
+
+[node name="TileMapLayer" parent="." index="2"]
+tile_map_data = PackedByteArray("AAACAAIAAgAAAAAAAAADAAIAAgAAAAAAAAAEAAIAAgAAAAAAAAAFAAIAAgAAAAAAAAAFAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAADAAMAAgAAAAAAAAACAAMAAgAAAAAAAAABAAIAAgAAAAAAAAABAAMAAgAAAAAAAAAGAAgAAgAAAAAAAAAHAAgAAgAAAAAAAAAIAAgAAgAAAAAAAAAJAAgAAgAAAAAAAAAKAAgAAgAAAAAAAAALAAgAAgAAAAAAAAAMAAgAAgAAAAAAAAANAAgAAgAAAAAAAAAOAAgAAgAAAAAAAAAPAAgAAgAAAAAAAAAQAAgAAgAAAAAAAAARAAgAAgAAAAAAAAARAAkAAgAAAAAAAAAQAAkAAgAAAAAAAAAPAAkAAgAAAAAAAAAOAAkAAgAAAAAAAAANAAkAAgAAAAAAAAAMAAkAAgAAAAAAAAALAAkAAgAAAAAAAAAKAAkAAgAAAAAAAAAJAAkAAgAAAAAAAAAIAAkAAgAAAAAAAAAHAAkAAgAAAAAAAAAGAAkAAgAAAAAAAAAFAAgAAgAAAAAAAAAFAAkAAgAAAAAAAAAEAAgAAgAAAAAAAAAEAAkAAgAAAAAAAAA=")
+
+[node name="Coin" parent="." index="5"]
+z_index = 1
+position = Vector2(193, 128)
+
+[node name="MeeplesPiggy" parent="." index="9" instance=ExtResource("2_jt78n")]
+position = Vector2(851, 665)
+
+[node name="Label" type="Label" parent="." index="10"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1333.0
+offset_top = 39.0
+offset_right = 1860.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_xtggx")
+theme_override_font_sizes/font_size = 30
+text = "Ordinary meeples are harmless and only move your piggy bank around, but they can also push you away."
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="." index="11"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 81.0
+offset_top = 429.0
+offset_right = 608.0
+offset_bottom = 766.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_xtggx")
+theme_override_font_sizes/font_size = 30
+text = "some maps are designed to have no borders, meaning that you can fall to your death"
+horizontal_alignment = 1
+autowrap_mode = 2
