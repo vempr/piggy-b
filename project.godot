@@ -17,9 +17,9 @@ universal_fade/patterns_directory="res://addons/UniversalFade/Patterns"
 config/name="piggy-b"
 run/main_scene="uid://dtxqoqpkqwaux"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/bg_color=Color(1, 0.759018, 0.373303, 1)
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/fullsize=false
-boot_splash/image="uid://benm8a5jqchyh"
+boot_splash/image="uid://dx5ao8gwpqu0h"
 config/icon="res://icon.svg"
 
 [autoload]

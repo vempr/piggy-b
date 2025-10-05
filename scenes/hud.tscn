@@ -41,6 +41,18 @@ position = Vector2(49, 40)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("2_oo0fn")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 1839.0
+offset_top = 28.0
+offset_right = 1854.0
+offset_bottom = 76.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 1866.0
+offset_top = 28.0
+offset_right = 1881.0
+offset_bottom = 76.0
+
 [node name="Button" type="Button" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
@@ -68,17 +80,5 @@ theme_override_styles/normal_mirrored = ExtResource("4_6fi6k")
 theme_override_styles/normal = ExtResource("4_6fi6k")
 text = "
 "
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 1839.0
-offset_top = 28.0
-offset_right = 1854.0
-offset_bottom = 76.0
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = 1866.0
-offset_top = 28.0
-offset_right = 1881.0
-offset_bottom = 76.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
