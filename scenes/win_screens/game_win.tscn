@@ -47,30 +47,32 @@ _data = {
 &"new_animation": SubResource("Animation_v1ogj")
 }
 
-[node name="GameWin" type="CanvasLayer"]
+[node name="Node2D" type="Node2D"]
+
+[node name="GameWin" type="CanvasLayer" parent="."]
 script = ExtResource("1_2daw3")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="GameWin"]
 position = Vector2(960, 540)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("2_yuupf")
 
-[node name="Cool" type="Sprite2D" parent="."]
+[node name="Cool" type="Sprite2D" parent="GameWin"]
 position = Vector2(960, 540)
 texture = ExtResource("3_bw5h8")
 
-[node name="Pencil" type="Sprite2D" parent="."]
+[node name="Pencil" type="Sprite2D" parent="GameWin"]
 position = Vector2(951, 542)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_2daw3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pencil"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameWin/Pencil"]
 libraries = {
 &"": SubResource("AnimationLibrary_ad7m8")
 }
 autoplay = "RESET"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="GameWin"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -87,7 +89,7 @@ theme_override_fonts/font = ExtResource("5_adulw")
 theme_override_font_sizes/font_size = 60
 text = "you bought... a                                 !!1!!"
 
-[node name="Label3" type="Label" parent="."]
+[node name="Label3" type="Label" parent="GameWin"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -105,7 +107,7 @@ theme_override_fonts/font = ExtResource("5_adulw")
 theme_override_font_sizes/font_size = 60
 text = "                           framework 16"
 
-[node name="LivesLabel" type="Label" parent="."]
+[node name="LivesLabel" type="Label" parent="GameWin"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -124,7 +126,7 @@ text = "beaten with 0 lives lost"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="GameWin"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -143,7 +145,7 @@ text = "Total coins gathered in piggy bank: 20"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="GameWin"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -172,8 +174,8 @@ theme_override_styles/normal_mirrored = ExtResource("6_r6gs1")
 theme_override_styles/normal = ExtResource("6_r6gs1")
 text = "main menu"
 
-[node name="YaySFX" type="AudioStreamPlayer2D" parent="."]
+[node name="YaySFX" type="AudioStreamPlayer2D" parent="GameWin"]
 stream = ExtResource("7_yuupf")
 volume_db = 10.0
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="GameWin/Button" to="GameWin" method="_on_button_pressed"]

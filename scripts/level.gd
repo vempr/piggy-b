@@ -1,23 +1,8 @@
 extends Node2D
 
-var next_level
-
 
 func _ready() -> void:
 	$HUD.pause_button_pressed.connect(_on_pause_button_pressed)
-	
-	match GLOBAL.is_in_tutorial_mode:
-		true:
-			if GLOBAL.level != GLOBAL.LAST_TUTORIAL_LEVEL:
-				next_level = load("res://scenes/tutorial_levels/tutorial_level_" + str(GLOBAL.level + 1) + ".tscn")
-			else:
-				next_level = preload("res://scenes/win_screens/tutorial_win.tscn")
-		
-		false:
-			if GLOBAL.level != GLOBAL.LAST_LEVEL:
-				next_level = load("res://scenes/levels/level_" + str(GLOBAL.level + 1) + ".tscn")
-			else:
-				next_level = preload("res://scenes/win_screens/game_win.tscn")
 	
 	if has_node("MeeplesPiggy/Piggy"):
 		$MeeplesPiggy/Piggy.level_won.connect(_on_level_won)
@@ -51,30 +36,24 @@ func _on_void_body_entered(_body: Node2D) -> void:
 
 func _on_level_won() -> void:
 	$WinSFX.play()
-	GLOBAL.level += 1
 	$Coin.visible = false
-	
-	Fade.fade_out(0.2)
+
 	var tree = get_tree()
 	
-	match GLOBAL.is_in_tutorial_mode:
-		false:
-			if GLOBAL.level > GLOBAL.LAST_LEVEL:
-				await Fade.fade_out().finished
-				tree.change_scene_to_packed(next_level)
-				await Fade.fade_in(0.1).finished
-			else:
-				await tree.create_timer(0.3).timeout
-				tree.change_scene_to_packed(next_level)
-		true:
-			if GLOBAL.level > GLOBAL.LAST_TUTORIAL_LEVEL:
-				await Fade.fade_out().finished
-				tree.change_scene_to_packed(next_level)
-				await Fade.fade_in(0.1).finished
-			else:
-				await tree.create_timer(0.3).timeout
-				tree.change_scene_to_packed(next_level)
+	if GLOBAL.is_in_tutorial_mode && GLOBAL.level == GLOBAL.LAST_TUTORIAL_LEVEL:
+		await Fade.fade_out(0.2).finished
+		print(tree.change_scene_to_file("res://scenes/win_screens/tutorial_win.tscn"))
+	elif !GLOBAL.is_in_tutorial_mode && GLOBAL.level == GLOBAL.LAST_LEVEL:
+		await Fade.fade_out(0.2).finished
+		print(tree.change_scene_to_file("res://scenes/win_screens/game_win.tscn"))
+	elif GLOBAL.is_in_tutorial_mode:
+		await tree.create_timer(0.3).timeout
+		tree.change_scene_to_file("res://scenes/tutorial_levels/tutorial_level_" + str(GLOBAL.level + 1) + ".tscn")
+	else:
+		await tree.create_timer(0.3).timeout
+		tree.change_scene_to_file("res://scenes/levels/level_" + str(GLOBAL.level + 1) + ".tscn")
 	
+	GLOBAL.level += 1
 	Fade.fade_in(0.2)
 
 

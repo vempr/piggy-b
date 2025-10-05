@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=4 uid="uid://dn4jxia2vd6t7"]
+
+[ext_resource type="PackedScene" uid="uid://wsuo0pfd0jie" path="res://scenes/level.tscn" id="1_xlc0a"]
+[ext_resource type="PackedScene" uid="uid://dw3hgc2ukiiui" path="res://scenes/piggy.tscn" id="2_62qgl"]
+[ext_resource type="PackedScene" uid="uid://cjogvstf7ciqt" path="res://scenes/enemy_path.tscn" id="3_62qgl"]
+[ext_resource type="PackedScene" uid="uid://bjcmhq4iqq783" path="res://scenes/enemies/magnet_meeple.tscn" id="4_csf6e"]
+[ext_resource type="PackedScene" uid="uid://db5qjrcbb2u16" path="res://scenes/fan.tscn" id="5_sd2du"]
+
+[node name="Level9" instance=ExtResource("1_xlc0a")]
+
+[node name="TileMapLayer" parent="." index="2"]
+tile_map_data = PackedByteArray("AAD//wkAAgAAAAAAAAD//wgAAgAAAAAAAAD//wcAAgAAAAAAAAD//wYAAgAAAAAAAAD//wUAAgAAAAAAAAD//wQAAgAAAAAAAAD//wMAAgAAAAAAAAD//wIAAgAAAAAAAAD//wEAAgAAAAAAAAD//wAAAgAAAAAAAAATAAQAAgAAAAAAAAATAAMAAgAAAAAAAAATAAIAAgAAAAAAAAATAAEAAgAAAAAAAAATAAAAAgAAAAAAAAD/////AgAAAAAAAAAAAP//AgAAAAAAAAABAP//AgAAAAAAAAACAP//AgAAAAAAAAADAP//AgAAAAAAAAAEAP//AgAAAAAAAAAFAP//AgAAAAAAAAAGAP//AgAAAAAAAAAHAP//AgAAAAAAAAAIAP//AgAAAAAAAAAJAP//AgAAAAAAAAAKAP//AgAAAAAAAAALAP//AgAAAAAAAAAMAP//AgAAAAAAAAANAP//AgAAAAAAAAAOAP//AgAAAAAAAAAPAP//AgAAAAAAAAAQAP//AgAAAAAAAAARAP//AgAAAAAAAAASAP//AgAAAAAAAAATAP//AgAAAAAAAAD//woAAgAAAAAAAAAAAAoAAgAAAAAAAAABAAoAAgAAAAAAAAACAAoAAgAAAAAAAAADAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAKAAoAAgAAAAAAAAALAAoAAgAAAAAAAAAMAAoAAgAAAAAAAAANAAoAAgAAAAAAAAAOAAoAAgAAAAAAAAAPAAoAAgAAAAAAAAAQAAoAAgAAAAAAAAARAAoAAgAAAAAAAAASAAoAAgAAAAAAAAATAAoAAgAAAAAAAAATAAkAAgAAAAAAAAATAAgAAgAAAAAAAAATAAcAAgAAAAAAAAATAAYAAgAAAAAAAAATAAUAAgAAAAAAAAAQAAkAAgAAAAAAAAAQAAgAAgAAAAAAAAAQAAcAAgAAAAAAAAAQAAYAAgAAAAAAAAAQAAUAAgAAAAAAAAAQAAQAAgAAAAAAAAAQAAMAAgAAAAAAAAAQAAIAAgAAAAAAAAAPAAIAAgAAAAAAAAAPAAMAAgAAAAAAAAAPAAQAAgAAAAAAAAAPAAUAAgAAAAAAAAAPAAYAAgAAAAAAAAAPAAcAAgAAAAAAAAAPAAgAAgAAAAAAAAAPAAkAAgAAAAAAAAALAAAAAgAAAAAAAAALAAEAAgAAAAAAAAALAAIAAgAAAAAAAAALAAMAAgAAAAAAAAALAAQAAgAAAAAAAAALAAUAAgAAAAAAAAALAAYAAgAAAAAAAAALAAcAAgAAAAAAAAAKAAcAAgAAAAAAAAAKAAYAAgAAAAAAAAAKAAUAAgAAAAAAAAAKAAQAAgAAAAAAAAAKAAMAAgAAAAAAAAAKAAIAAgAAAAAAAAAKAAEAAgAAAAAAAAAKAAAAAgAAAAAAAAAFAAQAAgAAAAAAAAAFAAMAAgAAAAAAAAAFAAIAAgAAAAAAAAAFAAUAAgAAAAAAAAAEAAIAAgAAAAAAAAAEAAMAAgAAAAAAAAAEAAQAAgAAAAAAAAAEAAUAAgAAAAAAAAAEAAYAAgAAAAAAAAAEAAcAAgAAAAAAAAAEAAgAAgAAAAAAAAAEAAkAAgAAAAAAAAAFAAkAAgAAAAAAAAAFAAgAAgAAAAAAAAAFAAcAAgAAAAAAAAAFAAYAAgAAAAAAAAA=")
+
+[node name="Coin" parent="." index="5"]
+position = Vector2(488, 148)
+
+[node name="Piggy" parent="." index="6" instance=ExtResource("2_62qgl")]
+position = Vector2(205, 934)
+
+[node name="EnemyPath" parent="." index="10" instance=ExtResource("3_62qgl")]
+
+[node name="EnemySpawnTimer" type="Timer" parent="EnemyPath" index="1"]
+wait_time = 20.0
+
+[node name="MagnetMeeple" parent="." index="11" instance=ExtResource("4_csf6e")]
+position = Vector2(1418, 350)
+rotation = 4.71239
+
+[node name="MagnetMeeple2" parent="." index="12" instance=ExtResource("4_csf6e")]
+position = Vector2(1285, 713)
+rotation = 1.5708
+
+[node name="MagnetMeeple3" parent="." index="13" instance=ExtResource("4_csf6e")]
+position = Vector2(685, 723)
+rotation = 1.5708
+
+[node name="MagnetMeeple4" parent="." index="14" instance=ExtResource("4_csf6e")]
+position = Vector2(685, 609)
+rotation = 1.5708
+
+[node name="MagnetMeeple5" parent="." index="15" instance=ExtResource("4_csf6e")]
+position = Vector2(685, 496)
+rotation = 1.5708
+
+[node name="MagnetMeeple6" parent="." index="16" instance=ExtResource("4_csf6e")]
+position = Vector2(685, 383)
+rotation = 1.5708
+
+[node name="MagnetMeeple7" parent="." index="17" instance=ExtResource("4_csf6e")]
+position = Vector2(86, 311)
+rotation = 1.5708
+
+[node name="MagnetMeeple8" parent="." index="18" instance=ExtResource("4_csf6e")]
+position = Vector2(317, 677)
+rotation = 4.71239
+
+[node name="Fan" parent="." index="19" instance=ExtResource("5_sd2du")]
+position = Vector2(601, 1001)
+rotation = 4.71239
+
+[node name="Fan2" parent="." index="20" instance=ExtResource("5_sd2du")]
+position = Vector2(755, 1001)
+rotation = 4.71239
+
+[node name="Fan3" parent="." index="21" instance=ExtResource("5_sd2du")]
+position = Vector2(909, 1001)
+rotation = 4.71239
+
+[connection signal="timeout" from="EnemyPath/EnemySpawnTimer" to="EnemyPath" method="_on_enemy_spawn_timer_timeout"]

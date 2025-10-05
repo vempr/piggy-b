@@ -6,8 +6,8 @@ extends Node
 const LAST_TUTORIAL_LEVEL = 5
 const BEGINNING_TUTORIAL_LIVES = 100
 
-const LAST_LEVEL = 20
-const BEGINNING_LIVES = 20
+const LAST_LEVEL = 10
+const BEGINNING_LIVES = 10
 
 var is_in_tutorial_mode = false
 var lives = BEGINNING_LIVES

@@ -45,7 +45,6 @@ shape = SubResource("RectangleShape2D_h3fxe")
 
 [node name="FanSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_05mpp")
-volume_db = 15.0
 autoplay = true
 
 [connection signal="timeout" from="WindSpawnerTimer" to="." method="_on_wind_spawner_timer_timeout"]

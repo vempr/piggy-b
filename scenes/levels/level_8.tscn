@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=4 uid="uid://sgqhiyk7iwxe"]
+
+[ext_resource type="PackedScene" uid="uid://wsuo0pfd0jie" path="res://scenes/level.tscn" id="1_irbrv"]
+[ext_resource type="PackedScene" uid="uid://bsmkod3vb4b6" path="res://scenes/meeples_piggy.tscn" id="2_805pq"]
+[ext_resource type="PackedScene" uid="uid://bjcmhq4iqq783" path="res://scenes/enemies/magnet_meeple.tscn" id="3_ki8mi"]
+[ext_resource type="PackedScene" uid="uid://ctpc3piplhpx" path="res://scenes/strong_fan.tscn" id="4_ki8mi"]
+[ext_resource type="PackedScene" uid="uid://cjogvstf7ciqt" path="res://scenes/enemy_path.tscn" id="5_u61dc"]
+
+[node name="Level8" instance=ExtResource("1_irbrv")]
+
+[node name="TileMapLayer" parent="." index="2"]
+tile_map_data = PackedByteArray("AAADAAEAAgAAAAAAAAAEAAEAAgAAAAAAAAAFAAEAAgAAAAAAAAAGAAEAAgAAAAAAAAAHAAEAAgAAAAAAAAAIAAEAAgAAAAAAAAAJAAEAAgAAAAAAAAAKAAEAAgAAAAAAAAALAAEAAgAAAAAAAAAMAAEAAgAAAAAAAAANAAEAAgAAAAAAAAAOAAEAAgAAAAAAAAAHAAQAAgAAAAAAAAAIAAQAAgAAAAAAAAAJAAQAAgAAAAAAAAAKAAQAAgAAAAAAAAALAAYAAgAAAAAAAAADAAgAAgAAAAAAAAAEAAgAAgAAAAAAAAAEAAkAAgAAAAAAAAADAAkAAgAAAAAAAAAFAAkAAgAAAAAAAAAGAAkAAgAAAAAAAAAHAAkAAgAAAAAAAAAIAAkAAgAAAAAAAAAJAAkAAgAAAAAAAAAKAAkAAgAAAAAAAAALAAkAAgAAAAAAAAAMAAkAAgAAAAAAAAANAAkAAgAAAAAAAAAOAAkAAgAAAAAAAAAOAAgAAgAAAAAAAAANAAgAAgAAAAAAAAAGAAYAAgAAAAAAAAA=")
+
+[node name="Coin" parent="." index="5"]
+position = Vector2(908, 342)
+
+[node name="MeeplesPiggy" parent="." index="9" instance=ExtResource("2_805pq")]
+position = Vector2(615, 766)
+
+[node name="MagnetMeeple" parent="." index="10" instance=ExtResource("3_ki8mi")]
+position = Vector2(1342, 714)
+
+[node name="MagnetMeeple2" parent="." index="11" instance=ExtResource("3_ki8mi")]
+position = Vector2(1463, 714)
+
+[node name="MagnetMeeple3" parent="." index="12" instance=ExtResource("3_ki8mi")]
+position = Vector2(333, 715)
+
+[node name="MagnetMeeple4" parent="." index="13" instance=ExtResource("3_ki8mi")]
+position = Vector2(450, 715)
+
+[node name="StrongFan" parent="." index="14" instance=ExtResource("4_ki8mi")]
+position = Vector2(455, 200)
+rotation = 1.5708
+
+[node name="StrongFan2" parent="." index="15" instance=ExtResource("4_ki8mi")]
+position = Vector2(606, 200)
+rotation = 1.5708
+
+[node name="StrongFan3" parent="." index="16" instance=ExtResource("4_ki8mi")]
+position = Vector2(758, 200)
+rotation = 1.5708
+
+[node name="StrongFan4" parent="." index="17" instance=ExtResource("4_ki8mi")]
+position = Vector2(1202, 200)
+rotation = 1.5708
+
+[node name="StrongFan5" parent="." index="18" instance=ExtResource("4_ki8mi")]
+position = Vector2(1353, 200)
+rotation = 1.5708
+
+[node name="StrongFan6" parent="." index="19" instance=ExtResource("4_ki8mi")]
+position = Vector2(1505, 200)
+rotation = 1.5708
+
+[node name="EnemyPath" parent="." index="20" instance=ExtResource("5_u61dc")]
+
+[node name="EnemySpawnTimer" type="Timer" parent="EnemyPath" index="1"]
+wait_time = 20.0
+
+[connection signal="timeout" from="EnemyPath/EnemySpawnTimer" to="EnemyPath" method="_on_enemy_spawn_timer_timeout"]
