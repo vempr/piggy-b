@@ -5,7 +5,7 @@ for every level. Sounds too easy, until you realize that the movement is not so
 intuitive and that your attempts are very limited.
 
 For anyone wondering: the weird looking theme/enemies of this game are from
-Hack Club and particularly one of it's events, Siege. Have fun (raging)!
+Hack Club and particularly one of it's events, Siege. Have fun (raging)! Demo video: https://youtu.be/UwO4idf6OUw
 
 ## Gallery
 
